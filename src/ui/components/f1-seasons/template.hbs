@@ -1,17 +1,29 @@
-<div>
-  Viewing: {{seasonInfo.season}} Season
+<div class="f1-seasons">
+  {{#unless currentRace}}
+    <div>
+      Viewing: {{seasonInfo.season}} Season
+    </div>
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Location</th>
+        <th>When</th>
+      </thead>
+      {{#each seasonInfo.Races key="@index" as |race|}}
+        <tr>
+          <td>
+            <button
+              onClick={{action loadRace race}}>
+              {{race.raceName}}
+            </button>
+          </td>
+          <td>{{race.Circuit.circuitName}}</td>
+          <td>{{race.date}}</td>
+        </tr>
+      {{/each}}
+  </table>
+  {{else}}
+    <race-info @race={{currentRace}} />  
+    <button onClick={{action back}}>Back</button>
+  {{/unless}}
 </div>
-<table>
-  <thead>
-    <th>Name</th>
-    <th>Location</th>
-    <th>When</th>
-  </thead>
-  {{#each seasonInfo.Races key="@index" as |race|}}
-    <tr>
-      <td>{{race.raceName}}</td>
-      <td>{{race.Circuit.circuitName}}</td>
-      <td>{{race.date}}</td>
-    </tr>
-  {{/each}}
-</table>

@@ -1,0 +1,14 @@
+<div class="race-details">
+  <h3>{{@race.raceName}}</h3>
+
+  <dl>
+    <dt>Wiki Info:</dt>
+    <dl><a href={{@race.url}} target="_blank">{{circuit.circuitName}}</a></dl>
+    <dt>Circuit:</dt>
+    <dl>{{circuit.circuitId}}</dl>
+    <dt>Location:</dt>
+    <dl>{{location.locality}}, {{location.country}}</dl>
+    <dt>Date:</dt>
+    <dl>{{@race.date}} {{@race.time}}</dl>
+  </dl>
+</div>

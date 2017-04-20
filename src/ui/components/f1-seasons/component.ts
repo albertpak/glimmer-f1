@@ -2,6 +2,7 @@ import Component, { tracked } from '@glimmer/component';
 
 export default class F1Seasons extends Component {
   @tracked seasonInfo;
+  @tracked currentRace;
 
   constructor(options) {
     super(options);
@@ -13,5 +14,13 @@ export default class F1Seasons extends Component {
     let json = await response.json();
 
     this.seasonInfo = json.MRData.RaceTable;
+  }
+
+  loadRace(race) {
+    this.currentRace = race;
+  }
+
+  back() {
+    this.currentRace = null;
   }
 };

@@ -1,0 +1,26 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>DOB:</th>
+        <th>Nationality</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each drivers key="@index" as |driver|}}
+        <tr>
+          <td>{{driver.givenName}} {{driver.familyName}}</td>
+          <td>{{driver.dateOfBirth}}</td>
+          <td>{{driver.nationality}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button onClick={{action prev}}>Previous</button>
+    <button onClick={{action next}}>Next</button>
+  </div>
+</div>
